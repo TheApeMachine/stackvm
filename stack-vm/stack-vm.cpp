@@ -48,6 +48,21 @@ void StackVM::doPrimitive() {
       memory[sp - 1] = memory[sp - 1] + memory[sp];
       sp--;
       break;
+    case 2:
+      std::cout << "sub " << memory[sp - 1] << " " << memory[sp] << std::endl;
+      memory[sp - 1] = memory[sp - 1] - memory[sp];
+      sp--;
+      break;
+    case 3:
+      std::cout << "mul " << memory[sp - 1] << " " << memory[sp] << std::endl;
+      memory[sp - 1] = memory[sp - 1] * memory[sp];
+      sp--;
+      break;
+    case 4:
+      std::cout << "div " << memory[sp - 1] << " " << memory[sp] << std::endl;
+      memory[sp - 1] = memory[sp - 1] / memory[sp];
+      sp--;
+      break;
   }
 }
 
