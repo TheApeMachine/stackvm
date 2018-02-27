@@ -80,7 +80,7 @@ strings Lexer::lex(std::string s) {
 				i++;
 			}
 			break;
-		case SKIP;
+		case SKIP:
 			if (my_isspace(s[i])) {
 				i++;
 			} else {
@@ -88,7 +88,7 @@ strings Lexer::lex(std::string s) {
 			}
 			break;
 		case DUMP:
-			if (j < 0) {
+			if (j > 0) {
 				lexeme[j] = 0;
 				strlst.push_back(lexeme);
 				j = 0;
@@ -114,6 +114,7 @@ strings Lexer::lex(std::string s) {
 	return strlst;
 }
 
+// this function allows us to define what a space is
 bool Lexer::my_isspace(char c) {
 	switch(c) {
 		case '\n':
@@ -127,7 +128,6 @@ bool Lexer::my_isspace(char c) {
 			return false;
 	}
 }
-
 bool Lexer::isgroup(char c) {
 	beg_char = c;
 	switch(c) {
@@ -143,7 +143,6 @@ bool Lexer::isgroup(char c) {
 		return false;
 	}
 }
-
 bool Lexer::isspecial(char c) {
 	switch(c) {
 		case '[':

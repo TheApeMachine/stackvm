@@ -2,7 +2,7 @@
 #include <fstream>
 #include "lexer.h"
 
-typdef uint32_t i32;
+typedef uint32_t i32;
 
 using namespace std;
 
@@ -64,6 +64,7 @@ vector<i32> compileToInstructions(strings s) {
 			}
 		}
 	}
+	instructions.push_back(0x40000000); // always halt at the end
 	return instructions;
 }
 bool isInteger(string s) {
